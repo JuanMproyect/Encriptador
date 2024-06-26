@@ -1,0 +1,245 @@
+:root {
+  --white: #ffffff;
+  --dark-blue-300: #0a3871;
+  --gray-400: #495057;
+  --gray-500: #343A40;
+  --hover-gray: #D8DFE8;
+  --red: #ff0000;
+}
+
+html * {
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+
+/* Establece una altura del 100% para el cuerpo y el elemento HTML */
+html, body {
+  height: 100%;
+}
+
+body, textarea {
+  background-color: #E5E5E5;
+}
+
+button {
+  cursor: pointer;
+}
+
+.alura-logo {
+  margin-bottom: 2rem;
+}
+
+.contenedor-externo {
+  height: 100%;
+  padding: 2rem;
+}
+
+.contenedor-principal {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.input-usuario {
+  color: var(--dark-blue-300);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  min-height: 250px;
+  font-size: 2rem;
+  resize: none; /* Evita que el usuario redimensione manualmente el textarea */
+  overflow: hidden;
+
+  border: none;
+} 
+
+.input-usuario::placeholder {
+  color: var(--dark-blue-300);
+}
+
+small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+}
+
+.simbolo-admiracion {
+  margin-right: 0.313rem;
+  vertical-align: middle;
+}
+
+.contenedor-funciones {
+  margin: 0.5rem 0 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.boton-encriptar, .boton-desencriptar {
+  padding: 1.5rem;
+  border: 1px solid var(--dark-blue-300);
+  border-radius: 17px;
+}
+
+.boton-encriptar {
+  background-color: var(--dark-blue-300);
+  color: var(--white);
+}
+
+.boton-desencriptar {
+  color: var(--dark-blue-300);
+  background-color: transparent;
+}
+
+.boton-desencriptar:hover {
+  background-color: var(--hover-gray);
+}
+
+.boton-funcion {
+  transition: transform 0.2s ease; 
+}
+
+.boton-funcion:hover {
+  transform: scale(1.05); 
+}
+
+.contenedor-output {
+  background-color: var(--white);
+  box-shadow: 0 24px 32px -8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 32px;
+  line-height: 1.3;
+  margin-top: 2rem;
+
+  color: var(--gray-400);
+}
+
+.muñeco {
+  display: none;
+}
+
+.contenedor-output .parrafo-sin-mensaje {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--gray-500);
+  margin-bottom: 1rem;
+}
+
+
+.boton-copiar {
+  background-color: transparent;
+  color: var(--dark-blue-300);
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--dark-blue-300);
+  border-radius: 17px;
+  margin-top: 1rem;
+
+}
+
+/* Estilos mensaje error */
+.error {
+  color: var(--red);
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+/* Estilos mensaje encriptado */
+.resultado {
+  color: var(--dark-blue-300);
+  font-size: 2rem;
+}
+
+
+/* Estilos para tablets en general */
+@media only screen and (min-width: 600px){
+
+  .contenedor-principal {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .contenedor-funciones {
+    flex-direction: row;
+  }  
+  .contenedor-funciones button {
+    flex: 1; /* Ocupa el 50% del ancho disponible */
+}
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+
+.contenedor-externo {
+  display: flex;
+  flex-direction: column; 
+}
+
+.contenedor-principal {
+  flex: 1; /* Ocupa todo el espacio disponible verticalmente */
+  flex-direction: row;
+  gap: 5rem;
+}
+
+/* primera columna */
+.seccion-1 {
+  flex: 2; /* Ocupa 2/3 del espacio disponible */
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titulo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 1rem 1rem 1rem 3rem;
+}
+
+.input-usuario {
+  margin-top: 6rem;
+}
+
+.divisor {
+  margin-bottom: 1.2rem;
+}
+
+/* segunda columna */
+
+.seccion-2 {
+  flex: 1;/* Ocupa 1/3 del espacio disponible */
+  max-width: 400px;
+}
+
+  .contenedor-output {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+  }
+
+  .contenedor-output .muñeco {
+      display: inline-block; 
+  }
+
+} 
