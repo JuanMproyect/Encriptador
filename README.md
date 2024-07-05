@@ -1,5 +1,5 @@
 # Proyecto Alura Challenge: Encriptador
-# challenge: codificador
+# challenge: codificador 
 
 En este proyecto, se ha creado una aplicación simple de encriptación y desencriptación de mensajes. Las “llaves” de encriptación utilizadas fueron las siguientes:
 
