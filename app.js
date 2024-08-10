@@ -68,19 +68,27 @@ const desencriptarTexto = (textoEncriptado) => {
 
 // Función para manejar la entrada del usuario
 const manejarInputUsuario = (texto, tipo) => {
-    const mensaje = texto.toLowerCase().trim();
+    const mensajeOriginal = texto.trim();
 
     // Limpiar el resultado anterior y ocultar el botón de copiar
     parrafoResultado.textContent = '';
     botonCopiar.style.display = 'none';
 
-    if (mensaje === '') {
+    if (mensajeOriginal === '') {
         mostrarMensajeError('El campo de texto está vacío.');
         mostrarElementosIniciales(true);
         return;
     }
 
-    const hasSpecialCharacters = /[^a-z\s]/i.test(mensaje);
+    // Verificar si hay mayúsculas
+    const hasUppercase = /[A-Z]/.test(mensajeOriginal);
+    if (hasUppercase) {
+        mostrarMensajeError('No se permiten letras mayúsculas.');
+        mostrarElementosIniciales(true);
+        return;
+    }
+
+    const hasSpecialCharacters = /[^a-z\s]/i.test(mensajeOriginal);
     if (hasSpecialCharacters) {
         mostrarMensajeError('No se permiten caracteres especiales o acentos.');
         mostrarElementosIniciales(true);
@@ -88,6 +96,7 @@ const manejarInputUsuario = (texto, tipo) => {
     }
 
     ocultarMensajeError();
+    const mensaje = mensajeOriginal.toLowerCase();
     const textoTransformado = tipo === 'encriptar' ? encriptarTexto(mensaje) : desencriptarTexto(mensaje);
 
     parrafoResultado.textContent = textoTransformado;
